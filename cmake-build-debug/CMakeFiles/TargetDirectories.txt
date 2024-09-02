@@ -1,0 +1,3 @@
+C:/Users/wedi baba/ikt203/dobble-linked-list/ikt203/cmake-build-debug/CMakeFiles/ikt203.dir
+C:/Users/wedi baba/ikt203/dobble-linked-list/ikt203/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/wedi baba/ikt203/dobble-linked-list/ikt203/cmake-build-debug/CMakeFiles/rebuild_cache.dir
