@@ -1,5 +1,8 @@
 #include <iostream>
+#include <limits>
 #include <string>
+#include <cctype>  // For isalpha and isdigit
+
 
 using namespace  std;
 
@@ -118,6 +121,20 @@ public:
 
 
 
+
+// Function to check if a string contains only alphabetic characters
+bool isAlphabetic(const string& str) {
+    for (char c : str) {
+        if (!isalpha(c) && c != ' ') {
+            return false;
+        }
+    }
+    return true;
+}
+
+
+
+
 int main() {
     playList myPLaylist;    // play list object creat in here
     int id ;                // Here is variable for song ID
@@ -137,8 +154,45 @@ int main() {
       cout << "==================================================\n";
 
       cout << " Input your choice (numeric only): " << endl ;
-      cin >> choice ;
+      //cin >> choice ;
 
+
+      while (!(cin >> choice)) {
+          cout << "Please enter a number between 1 and 6: ";
+          cin.clear();
+          cin.ignore(numeric_limits<streamsize>::max(), '\n');
+      }
+
+
+      switch (choice) {
+          case 1:
+              // Case of add new song
+                  cout << "Write an Id: ";
+          cin >> id;
+
+          // Input validation for title
+          do {
+              cout << "Write song name: ";
+              cin.ignore(); // Ignore any leftover newline character in the input buffer
+              getline(cin, title);
+              if (!isAlphabetic(title)) {
+                  cout << "Invalid input. Please enter a valid song title (text only)." << endl;
+              }
+          } while (!isAlphabetic(title));
+
+          // Input validation for artist name
+          do {
+              cout << "Write artist name: ";
+              getline(cin, artist);
+              if (!isAlphabetic(artist)) {
+                  cout << "Invalid input. Please enter a valid artist name (text only)." << endl;
+              }
+          } while (!isAlphabetic(artist));
+
+          myPLaylist.addSongs(id, title, artist);
+          break;
+
+      /*
       switch (choice) {
           case 1:
               //Case of add new song
@@ -150,7 +204,7 @@ int main() {
               cin >> artist ;
               myPLaylist.addSongs(id,title,artist);
               break;
-
+*/
 
           case 2:
               // Case two remove song using their ID
@@ -173,7 +227,7 @@ int main() {
 
           case 5:
               // In case user can search song using Id
-              cout << "Search for a song: " << endl;
+              cout << "Search for a song by ID: " << endl;
               cin >> id ;
               myPLaylist.searchSongByID(id);
               break;
@@ -187,4 +241,3 @@ int main() {
   }while (choice != 6);
     return 0;
 }
-// last of the assignements
