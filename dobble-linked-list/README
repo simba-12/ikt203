@@ -1,1 +1,146 @@
 
+# Playlist Application - ReadMe
+
+## Overview
+This Playlist Application is a console-based C++ program that allows users to manage a playlist of songs. It uses a doubly linked list data structure to store and manipulate song information. Users can add songs, remove songs by their unique ID, display the playlist, display it in reverse order, and search for a specific song by its ID.
+
+## Features
+1. **Add a New Song**:
+   - Add a song to the playlist with an ID, title, and artist.
+2. **Remove a Song by ID**:
+   - Remove a song from the playlist using its unique ID.
+3. **Display Playlist**:
+   - Display the entire playlist in the order of insertion.
+4. **Display Playlist in Reverse Order**:
+   - Display the playlist in reverse order.
+5. **Search a Song by ID**:
+   - Search for a specific song in the playlist using its ID.
+6. **Exit Program**:
+   - Exit the application.
+
+## How to Run the Program
+1. Ensure you have a C++ compiler (e.g., g++).
+2. Compile the program using the command:
+   ```bash
+   g++ -o playlist_app playlist.cpp
+   ```
+3. Run the program:
+   ```bash
+   ./playlist_app
+   ```
+4. Follow the on-screen menu instructions to interact with the application.
+
+## Input Validation
+- Song titles and artist names must contain only alphabetic characters and spaces.
+- Menu choices must be numeric and within the specified range (1 to 6).
+
+## Menu Options
+The application provides the following menu options:
+
+```
+=================================================
+[1] -------- Add a New Song ---------------------
+[2] -------- Remove a Song by ID ----------------
+[3] -------- Display Playlist -------------------
+[4] -------- Display in Reverse Order -----------
+[5] -------- Search a Song by ID ----------------
+[6] -------- Exit Program -----------------------
+=================================================
+```
+
+### Option Details
+- **[1] Add a New Song**:
+  - Enter the song's ID (numeric), title, and artist.
+  - The title and artist must be alphabetic strings.
+
+- **[2] Remove a Song by ID**:
+  - Enter the ID of the song to be removed.
+  - The program will delete the song if it exists in the playlist.
+
+- **[3] Display Playlist**:
+  - Displays the songs in the playlist from first to last.
+
+- **[4] Display in Reverse Order**:
+  - Displays the songs in the playlist from last to first.
+
+- **[5] Search a Song by ID**:
+  - Enter the ID of the song to search.
+  - The program will display the song if it exists in the playlist.
+
+- **[6] Exit Program**:
+  - Exits the application.
+
+## Class Descriptions
+
+### 1. Node Class
+- Represents a song in the playlist.
+- Attributes:
+  - `id`: Unique identifier for the song.
+  - `title`: Title of the song.
+  - `artist`: Artist of the song.
+  - `Next`: Pointer to the next node.
+  - `Prev`: Pointer to the previous node.
+- Constructor:
+  - Initializes the `id`, `title`, `artist`, and sets `Next` and `Prev` to `nullptr`.
+
+### 2. playList Class
+- Manages the doubly linked list of songs.
+- Attributes:
+  - `head`: Pointer to the first node in the list.
+  - `tail`: Pointer to the last node in the list.
+- Methods:
+  - `addSongs(int id, const string& title, const string& artist)`:
+    - Adds a new song to the playlist.
+  - `displayPlayList()`:
+    - Displays the playlist from the head to the tail.
+  - `reverseDisplayPlayList()`:
+    - Displays the playlist from the tail to the head.
+  - `removePlayList(int id)`:
+    - Removes a song by its ID.
+  - `searchSongByID(int id)`:
+    - Searches for a song by its ID and displays it if found.
+
+## Example Usage
+1. Add songs:
+   - Input:
+     ```
+     Write an ID: 1
+     Write song name: Imagine
+     Write artist name: John Lennon
+     ```
+2. Display playlist:
+   - Output:
+     ```
+     ID: 1, Title: Imagine, Artist: John Lennon
+     ```
+3. Remove a song by ID:
+   - Input:
+     ```
+     Write song ID: 1
+     ```
+   - Output:
+     ```
+     Song with ID 1 has been deleted from the playlist.
+     ```
+4. Search for a song:
+   - Input:
+     ```
+     Search for a song by ID: 1
+     ```
+   - Output:
+     ```
+     Song not found.
+     ```
+
+## Notes
+- The program uses dynamic memory allocation to create new nodes.
+- The destructor ensures all dynamically allocated memory is properly released when the program ends.
+
+## Enhancements
+- Validate IDs to ensure they are unique.
+- Add the ability to save and load playlists from a file.
+- Add error handling for edge cases (e.g., removing from an empty list).
+
+## License
+This program is open-source and free to use and modify.
+
