@@ -22,3 +22,16 @@ This Playlist Application is a console-based C++ program that allows users to ma
 2. Compile the program using the command:
    ```bash
    g++ -o playlist_app main.cpp
+   ```
+3. Run the compiled program:
+   ```bash
+   ./playlist_app
+   ```
+
+## Implementation Details
+- The program uses a doubly linked list to maintain the playlist.
+- Each node in the list contains song information (ID, title, artist) and pointers to the next and previous nodes.
+- Input validation ensures that song titles and artist names contain only alphabetic characters.
+
+## Usage
+Follow the on-screen menu to interact with the application. Enter the number corresponding to your desired action.
